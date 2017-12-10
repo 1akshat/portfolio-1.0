@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <title>{% block title %}{{ post.title }}{% endblock %}</title>
+</head>
+<body>
+
+{% block nav %}
+    <div class="collapse navbar-collapse navbar-right">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>                        
+        </ul>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+    <section id="blog" class="container">
+        <div class="center">
+            <h1 style="font-size:28px; color:#000; font-style:Monospace;">
+              MY BLOGS
+            </h1>
+        </div>
+        <div class="blog">
+            <div class="row">
+                 <div class="col-md-8">
+                    {% if posts %}
+                    {% for post in posts %}
+                    <div class="blog-item">
+                        <div class="row">
+                             <div class="col-sm-2 text-center">
+                                <div class="entry-meta"> 
+                                    <span id="publish_date">{{ post.date }}</span>
+                                    <center><span><i class="fa fa-user"></i> {{ post.writer }}</span></center>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 blog-content">
+                                <h2>{{ post.title|safe }}</h2>
+                                <h3>{{ post.body|truncatechars:1000|safe }}</h3>
+                                <br><br>
+                                <a class="btn btn-primary readmore" href="{{ post.get_absolute_url }}">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>    
+                    </div><!--/.blog-item-->
+                    {% endfor %}
+                    {% endif %}
+
+                    <!--    
+                    <ul class="pagination pagination-lg">
+                        <li><a href="#"><i class="fa fa-long-arrow-left"></i>Previous Page</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Next Page<i class="fa fa-long-arrow-right"></i></a></li>
+                    </ul><!--/.pagination-->
+                </div><!--/.col-md-8-->
+
+                <aside class="col-md-4">
+                    
+                    <div class="widget categories">
+                        <h3>Categories</h3>
+                        {% if categories %}
+                        <div class="row">
+                            <div class="col-sm-6">
+                            <ul class="blog_category">
+                                {% for c in categories %}
+                                    <li><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>There are no categories.</p>
+                            </div>
+                        </div> 
+                        {% endif %}                    
+                    </div><!--/.categories-->
+    			</aside>  
+            </div><!--/.row-->
+        </div>
+    </section><!--/#blog-->
+{% endblock %}
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
