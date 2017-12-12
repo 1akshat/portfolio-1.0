@@ -1,0 +1,33 @@
+WebSite/cv_web:
+
+  Env:
+    - PORT: '8000'
+  
+  PreRelease:
+    - echo "Nothing to Build"
+
+  PkgInclude:
+    - '*' 
+  
+  CommitData:
+    - RepoType: Git
+    - RepoPath: . 
+   
+  PreInstall: 
+    - 'echo "Starting PreInstall for application"'
+    - 'sudo apt-get -y install python-dev'
+    - 'sudo apt-get -y install python-pip'
+    - 'sudo pip install Django' 
+
+  Install:
+    - 'echo "Starting Install for application"'  
+     
+  PostInstall:
+    - 'echo "Starting PostInstall for application"'
+    - 'sudo pip install -r requirements.txt'
+    - 'python manage.py migrate'
+    - 'python manage.py makemigrations'
+    - 'python db_populate.py'
+ 
+  Exec:
+    - "exec python manage.py runserver 0.0.0.0:8000"
