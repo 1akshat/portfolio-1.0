@@ -23,6 +23,18 @@
 =====================================
 */
 
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -320,17 +332,18 @@ ul.list-check li::before {
 
 
 #home {
-	background: url(../images/home2.jpg) no-repeat center center;
 	-webkit-background-attachment: fixed;
     background-attachment: fixed;
-	background-color: #222;
+	background-color: #FFF;
 	background-size: cover;
 	padding: 0;
 	position: relative;
 }
 #home:before {
 	content: "";
-	background-color: rgba(26, 30, 35, 0.85);
+	background: #EB5757;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -919,7 +932,9 @@ Resume Timeline
 
 /* === Skill Section === */
 .skills-section {
-    background-color: #1a1e23;
+    background: #EB5757;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fff;   
 }
 .skills-section .section-title{
@@ -1108,7 +1123,9 @@ Resume Timeline
 
 /* === Footer Wrapper === */
 .footer-wrapper {
-    background: #1a1e23;
+    background: #EB5757;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #000000, #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 36px 0;
     color: #fff;
   
@@ -1223,7 +1240,7 @@ Resume Timeline
 
 #pre-status,
 .preload-placeholder {
-	background-image: url(../images/preloader.gif);
+	background-image: url(../images/loader.gif);
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 200px;
@@ -1249,8 +1266,7 @@ Resume Timeline
 /* === Home Page Two === */
 
 #homeTwo {
-    background: url(../images/home-2.jpg) no-repeat center center;
-    background-color: #222;
+    background-color: ##FFF;
     background-size: cover;
     padding: 0;
     position: relative;

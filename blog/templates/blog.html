@@ -16,7 +16,6 @@
 {% endblock %}
 
 
-
 {% block content %}
     <section id="blog" class="container">
         <div class="center">
@@ -29,6 +28,7 @@
                  <div class="col-md-8">
                     {% if posts %}
                     {% for post in posts %}
+                    <div class="card">
                     <div class="blog-item">
                         <div class="row">
                              <div class="col-sm-2 text-center">
@@ -45,6 +45,7 @@
                             </div>
                         </div>    
                     </div><!--/.blog-item-->
+                    </div>
                     {% endfor %}
                     {% endif %}
 
@@ -61,7 +62,7 @@
                 </div><!--/.col-md-8-->
 
                 <aside class="col-md-4">
-                    
+                    <div class="card">
                     <div class="widget categories">
                         <h3>Categories</h3>
                         {% if categories %}
@@ -78,6 +79,7 @@
                         </div> 
                         {% endif %}                    
                     </div><!--/.categories-->
+                    </div>
     			</aside>  
             </div><!--/.row-->
         </div>
